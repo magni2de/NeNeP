@@ -14,7 +14,7 @@ epoch = 30000
 printcount = 100
 
 name = 'f(x) = tan(x)'
-name_f = 'sin3'
+name_f = 'cos1'
 
 f = open('net_{}_state.pckl'.format(name_f), 'r')
 simple_net = pickle.load(f)

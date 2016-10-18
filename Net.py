@@ -25,7 +25,9 @@ class Net:
         self.epoch = 0
 
         self.last_sample_error = 0.0
+
         self.pattern_error = 0.0
+        self.pattern_out_result = []
 
     # -----------------------------------------------------------------------------
     def add_inp_layer(self, layer):
@@ -172,6 +174,8 @@ class Net:
         else:
             print 'Ошибка. В сети нет входного слоя'
 
+        self.out_result = out_signals
+
         return out_signals
 
     def backward_pass(self, targets, n_speed, m_speed):
@@ -278,6 +282,8 @@ class Net:
         :return:
         """
 
+        self.pattern_out_result = []
+
         for p in pattern:
 
             input_signal = p[0]
@@ -285,9 +291,11 @@ class Net:
 
             out_signal = self.forward_pass(input_signal=input_signal)
 
+            self.pattern_out_result.append(out_signal)
+
             print 'На входе сети:', input_signal, '-->', out_signal, '\tЦель', targets
 
-        return out_signal
+        return self.pattern_out_result
 
     # -----------------------------------------------------------------------------
     def train(self, input_signal, targets, max_iterations=1000, print_error_times=10, n_speed=0.1, m_speed=0.1):

@@ -23,12 +23,12 @@ l_rate = 0.01
 m_rate = 0.005
 printcount = 100
 
-name_f = 'sin3'
+name_f = 'cos1'
 
 # ------------------------------------------------- создаем обучающий датасет
 pat = []
 for i in xrange(-180, 180, 1):
-    pat.append([dict(input_0=i/10.0), dict(output_0=math.sin(i/10.0))])
+    pat.append([dict(input_0=i/10.0), dict(output_0=math.cos(i/10.0))])
 
 simple_net = Net()
 

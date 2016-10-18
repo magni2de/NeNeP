@@ -5,8 +5,8 @@ __author__ = 'Олег Троицкий'
 import pickle
 import pylab as pl
 
-name = 'f(x) = sin(x)'
-name_f = 'sin3'
+name = 'f(x) = cos(x)'
+name_f = 'cos1'
 
 f = open('net_{}_state.pckl'.format(name_f), 'r')
 simple_net = pickle.load(f)
@@ -30,7 +30,7 @@ pl.subplot(1, 1, 1)
 pl.title(net_desc)
 
 pl.xlabel('x')
-pl.ylabel('sin(x)')
+pl.ylabel('cos(x)')
 
 pl.xlim([-18.1, 18.1])
 pl.ylim([-1.5, 1.5])
